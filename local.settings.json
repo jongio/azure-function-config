@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
+    "Setting1":  "Value1"
+  },
+  "ConnectionStrings": {
+    "SqlConnectionString": "server=jongdb;user=jong;"
+  }
+}
