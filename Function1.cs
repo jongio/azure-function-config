@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace azure_function_config
 {
@@ -14,7 +15,7 @@ namespace azure_function_config
     {
         [FunctionName("Function1")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]
-        HttpRequest req, TraceWriter log, ExecutionContext context)
+        HttpRequest req, ILogger log, ExecutionContext context)
         {
             var config = new ConfigurationBuilder()
                 .SetBasePath(context.FunctionAppDirectory)
@@ -25,10 +26,10 @@ namespace azure_function_config
             var cstr = config.GetConnectionString("SqlConnectionString");
             var setting1 = config["Setting1"];
 
-            log.Info(cstr);
-            log.Info(setting1);
+            log.LogInformation($"{cstr}");
+            log.LogInformation($"{setting1}");
 
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
 
