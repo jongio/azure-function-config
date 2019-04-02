@@ -1,6 +1,7 @@
 {
   "IsEncrypted": false,
   "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
     "Setting1":  "Value1"
